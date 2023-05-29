@@ -11,5 +11,10 @@
         {
             Console.WriteLine("Light is off");
         }
+
+        public void SetColor(string colour)
+        {
+            Console.WriteLine($"Set colour to {colour}");
+        }
     }
 }

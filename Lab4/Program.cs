@@ -1,14 +1,16 @@
 ﻿using Lab4;
 
-Light light = new Light();
+var light = new Light();
 
-ICommand turnOnCommand = new TurnOnCommand(light);
-ICommand turnOffCommand = new TurnOffCommand(light);
+var turnOnCommand = new TurnOnCommand(light);
+var turnOffCommand = new TurnOffCommand(light);
 
-RemoteControl remoteControl = new RemoteControl();
+var remoteControl = new RemoteControl();
 
-remoteControl.SetCommand(turnOnCommand);
-remoteControl.PressButton();
+remoteControl.SetCommandA(turnOnCommand);
+remoteControl.SetCommandB(new TurnOnMusicCommand("sadsvit"));
+remoteControl.PressButtonA();
+remoteControl.PressButtonB();
 
-remoteControl.SetCommand(turnOffCommand);
-remoteControl.PressButton();
+remoteControl.SetCommandA(turnOffCommand);
+remoteControl.PressButtonA();

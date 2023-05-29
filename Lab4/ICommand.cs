@@ -37,18 +37,43 @@ namespace Lab4
         }
     }
 
-    internal class RemoteControl
+    internal class TurnOnMusicCommand : ICommand
     {
-        private ICommand command;
+        public string Song { get; set; }
 
-        public void SetCommand(ICommand command)
+        public TurnOnMusicCommand(string song)
         {
-            this.command = command;
+            Song = song;
         }
 
-        public void PressButton()
+        public void Execute()
         {
-            command.Execute();
+            Console.WriteLine($"Turn on music {Song}");
+        }
+    }
+
+    internal class RemoteControl
+    {
+        private ICommand commandA;
+        private ICommand commandB;
+
+        public void SetCommandA(ICommand command)
+        {
+            this.commandA = command;
+        }
+
+        public void SetCommandB(ICommand command)
+        {
+            this.commandB = command;
+        }
+
+        public void PressButtonA()
+        {
+            commandA.Execute();
+        }
+        public void PressButtonB()
+        {
+            commandB.Execute();
         }
     }
 }
